@@ -1,0 +1,105 @@
+body{
+  background: #222222;
+}
+
+.controls{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  
+  &:after{
+    content: "";
+    background: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100vmin;
+    height: 100vmin;
+    border-radius: 100vmin;
+    transform: translateX(-50%) translateY(-50%);  
+    opacity: 0.1;
+    zindex: -1;
+    
+  }
+  
+  &:before{
+    content: "";
+    position: absolute;
+    width: 40vmin;
+    height: 40vmin;    
+    left: calc(50% - 20vmin);
+    top: calc(50% - 20vmin);
+    background-image: url("https://image.spreadshirtmedia.net/image-server/v1/designs/6823141,width=178,height=178,version=1385609234/pixel-skull.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: all 0.7s ease-out;
+    opacity: 0;
+  }
+}
+
+.controls div{
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 15vmin 30vmin 15vmin;
+  border-color: transparent transparent white transparent;
+  transition: border-color 0.1s ease-out, opacity 0.6s ease-out;
+  z-index: 10;
+  opacity: 1;
+}
+
+.left{
+  top: 0;
+  right: 19vmin;
+  transform: translateY(-50%) rotate(-90deg) ;
+}
+
+.up{
+  bottom: 19vmin;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.right{
+  top: 50%;
+  left: 19vmin;
+  transform: translateY(-50%) rotate(90deg) ;
+}
+
+.down{
+  top: 19vmin;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.controls .active{
+  border-color: transparent transparent red transparent;
+}
+
+.controls.dead{
+  div{
+      opacity: 0;
+      pointer-events: none;
+  }
+  
+  &:before{  
+    opacity: 1;    
+  }
+}
+
+.kills{
+  position: absolute;
+  left: 0%;
+  top: 48%;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  pointer-events: none;
+  font-family: "Open Sans";
+}
